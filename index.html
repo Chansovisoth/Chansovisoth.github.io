@@ -1,83 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Chansovisoth | Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+    <title>Chansovisoth</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-    /* Audio Controls Container */
-    .audio-controls {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
-      z-index: 999;
-    }
+        h1 {
+            font-size: 3em;
+        }
 
-    /* Play/Pause Button */
-    .play-btn {
-      background-color: #007acc;
-      border: none;
-      color: white;
-      padding: 10px 12px;
-      font-size: 18px;
-      border-radius: 50%;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+        p {
+            font-size: 1.2em;
+        }
 
-    /* Volume Slider (vertical) */
-    .volume-slider {
-      writing-mode: bt-lr; /* bottom to top */
-      -webkit-appearance: slider-vertical;
-      width: 8px;
-      height: 80px;
-      transform: rotate(180deg); /* make low volume on bottom */
-    }
-  </style>
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #start-screen button {
+            font-size: 20px;
+            padding: 12px 24px;
+            cursor: pointer;
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Audio Element (hidden) -->
-  <audio id="bg-audio" loop>
-    <source src="https://docs.google.com/uc?export=download&id=1sb4qU5esgxM6aye9SLFBDKUXQs9fI2v2" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <div id="start-screen">
+        <button onclick="startGame()">Visit</button>
+    </div>
 
-  <!-- Audio Controls -->
-  <div class="audio-controls">
-    <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
-    <button class="play-btn" id="play-pause-btn">▶️</button>
-  </div>
+    <h1>Hello, I’m Chansovisoth 👋</h1>
+    <p>Computer Science student | Digital Artist | Web Developer</p>
+    <p>Check out my <a href="https://github.com/Chansovisoth" target="_blank">GitHub</a> or <a
+            href="mailto:you@example.com">email me</a>.</p>
 
-  <script>
-    const audio = document.getElementById('bg-audio');
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const volumeSlider = document.getElementById('volume-slider');
+    <audio src="https://anonsharing.com/file/05b5e9bad4a6d2bc/01-Frontend-Overcooked-2-Night-o.mp3" loop id="OST"></audio>
 
-    let isPlaying = false;
+    <script>
+        const audio = document.getElementById("OST");
+        audio.volume = 0.3;
 
-    playPauseBtn.addEventListener('click', () => {
-      if (isPlaying) {
-        audio.pause();
-        playPauseBtn.textContent = '▶️';
-      } else {
-        audio.play();
-        playPauseBtn.textContent = '⏸️';
-      }
-      isPlaying = !isPlaying;
-    });
+        function playOST() {
+            audio.play().catch(err => {
+                console.error("Playback failed:", err);
+            });
+        }
 
-    volumeSlider.addEventListener('input', () => {
-      audio.volume = volumeSlider.value;
-    });
-  </script>
+        function startGame() {
+            document.getElementById("start-screen").style.display = "none";
+            playOST();
+        }
 
+        function updateScore() {
+            score++;
+            const scoreValue = document.getElementById('score-value');
+            scoreValue.textContent = score;
+        }
+    </script>
 </body>
+
 </html>
