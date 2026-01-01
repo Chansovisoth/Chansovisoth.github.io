@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery | Chansovisoth Wattanak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/modal-share.css">
+</head>
+<body class="art-mode">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-back">
+                <i class="fas fa-arrow-left"></i>
+                Back
+            </a>
+            <span class="nav-title"><i class="fas fa-palette"></i> Art Gallery</span>
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-btn" id="share-btn" title="Share">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Art Background Pattern -->
+    <div class="art-bg-pattern" id="art-bg-pattern"></div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="share-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Share</h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="share-grid">
+                <a href="#" class="share-btn twitter" id="share-twitter" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>X</span>
+                </a>
+                <a href="#" class="share-btn bluesky" id="share-bluesky" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Bluesky">
+                    <span>Bluesky</span>
+                </a>
+                <a href="#" class="share-btn reddit" id="share-reddit" target="_blank">
+                    <i class="fab fa-reddit-alien"></i>
+                    <span>Reddit</span>
+                </a>
+                <a href="#" class="share-btn facebook" id="share-facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="share-btn instagram" id="share-instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="share-btn tiktok" id="share-tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+            </div>
+            <div class="copy-link-container">
+                <input type="text" class="copy-link-input" id="copy-link-input" readonly>
+                <button class="copy-btn" id="copy-btn">
+                    <i class="fas fa-copy"></i>
+                    Copy
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="gallery-hero">
+        <div class="gallery-hero-content">
+            <h1><i class="fas fa-star"></i> My Art Gallery <i class="fas fa-star"></i></h1>
+            <p>
+                A collection of my digital artwork, from personal passion projects to commissioned pieces. 
+                Each piece tells a story!
+            </p>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+        <button class="category-tab active" data-category="personal">
+            <i class="fas fa-heart"></i>
+            Personal Works
+            <span class="category-count">12</span>
+        </button>
+        <button class="category-tab" data-category="commissions">
+            <i class="fas fa-paintbrush"></i>
+            Commissions
+            <span class="category-count">8</span>
+        </button>
+    </div>
+
+    <!-- Gallery Container -->
+    <main class="gallery-container">
+        <!-- Personal Works -->
+        <div class="gallery-content active" id="personal-gallery">
+            <p class="gallery-section-title"><i class="fas fa-heart"></i> Personal Projects & Passion Pieces</p>
+            <div class="gallery-grid" id="personal-gallery-grid">
+                <!-- Rendered dynamically by gallery.js -->
+            </div>
+        </div>
+
+        <!-- Commissions -->
+        <div class="gallery-content" id="commissions-gallery">
+            <p class="gallery-section-title"><i class="fas fa-paintbrush"></i> Commission Works</p>
+            <div class="gallery-grid" id="commissions-gallery-grid">
+                <!-- Rendered dynamically by gallery.js -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="contact-title">Get In Touch</h2>
+            <p class="contact-subtitle">
+                Feel free to reach out for collaborations, opportunities, or just a friendly hello!
+            </p>
+            <div class="contact-links art-contacts">
+                <a href="https://www.reddit.com/user/Klaude_Here/submitted/" class="contact-link">
+                    <i class="fab fa-reddit-alien"></i>
+                    Reddit
+                </a>
+                <a href="https://www.instagram.com/iklaude/" class="contact-link">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </a>
+                <a href="https://discordapp.com/users/1037786229225308180" class="contact-link">
+                    <i class="fab fa-discord"></i>
+                    Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            &copy; 2026 <span>Chansovisoth Wattanak</span>. All artworks are original creations.
+        </p>
+    </footer>
+
+    <script src="js/gallery-data.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/modal-share.js"></script>
+    <script src="js/bg-pattern.js"></script>
+    <script>
+        // Category Tab Switching
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const personalGallery = document.getElementById('personal-gallery');
+        const commissionsGallery = document.getElementById('commissions-gallery');
+
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Switch gallery content
+                if (category === 'commissions') {
+                    personalGallery.classList.remove('active');
+                    commissionsGallery.classList.add('active');
+                } else {
+                    commissionsGallery.classList.remove('active');
+                    personalGallery.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

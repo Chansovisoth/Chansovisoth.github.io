@@ -1,98 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Chansovisoth</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 3em;
-        }
-
-        p {
-            font-size: 1.2em;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        #start-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #start-screen button {
-            font-size: 20px;
-            padding: 12px 24px;
-            cursor: pointer;
-        }
-
-        audio {
-            display: none;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chansovisoth Wattanak | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/modal-share.css">
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-spacer"></div>
+            <div class="nav-links">
+                <a href="#portfolios" class="nav-link active">Portfolios</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-btn" id="share-btn" title="Share">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <div id="start-screen">
-        <button onclick="startGame()">Visit</button>
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="share-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Share</h3>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="share-grid">
+                <a href="#" class="share-btn twitter" id="share-twitter" target="_blank">
+                    <i class="fab fa-x-twitter"></i>
+                    <span>X</span>
+                </a>
+                <a href="#" class="share-btn bluesky" id="share-bluesky" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Bluesky">
+                    <span>Bluesky</span>
+                </a>
+                <a href="#" class="share-btn reddit" id="share-reddit" target="_blank">
+                    <i class="fab fa-reddit-alien"></i>
+                    <span>Reddit</span>
+                </a>
+                <a href="#" class="share-btn facebook" id="share-facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="share-btn instagram" id="share-instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="share-btn tiktok" id="share-tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+            </div>
+            <div class="copy-link-container">
+                <input type="text" class="copy-link-input" id="copy-link-input" readonly>
+                <button class="copy-btn" id="copy-btn">
+                    <i class="fas fa-copy"></i>
+                    Copy
+                </button>
+            </div>
+        </div>
     </div>
 
-    <h1>Hello, I’m Chansovisoth 👋</h1>
-    <p>Computer Science student | Digital Artist | Web Developer</p>
-    <p>Check out my <a href="https://github.com/Chansovisoth" target="_blank">GitHub</a> or <a
-            href="mailto:you@example.com">email me</a>.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="portfolios">
+        <div class="hero-banner"></div>
+        <div class="hero-content">
+            <div class="profile-image-wrapper">
+                <img 
+                    src="https://avatars.githubusercontent.com/u/134577854?v=4" 
+                    alt="Chansovisoth Wattanak" 
+                    class="profile-image"
+                    id="profile-image"
+                    onerror="this.src='https://api.dicebear.com/7.x/initials/svg?seed=CW&backgroundColor=0ea5e9'"
+                >
+            </div>
+            <h1 class="hero-title" id="hero-name">Chansovisoth Wattanak</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Computer Science Major at Paragon International University</p>
+            <div class="hero-links" id="hero-links">
+                <a href="https://github.com/Chansovisoth" target="_blank" rel="noopener noreferrer" class="hero-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="mailto:cwattanak@paragoniu.edu.kh" class="hero-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <audio src="https://anonsharing.com/file/05b5e9bad4a6d2bc/01-Frontend-Overcooked-2-Night-o.mp3" loop id="OST"></audio>
+    <!-- Portfolio Switcher -->
+    <div class="portfolio-switcher">
+        <div class="switcher-tabs">
+            <button class="switcher-tab active" data-portfolio="business">
+                <i class="fas fa-briefcase"></i>&nbsp; Business
+            </button>
+            <button class="switcher-tab" data-portfolio="art">
+                <i class="fas fa-palette"></i>&nbsp; Art
+            </button>
+        </div>
+    </div>
 
-    <script>
-        const audio = document.getElementById("OST");
-        audio.volume = 0.3;
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Art Mode Background Pattern -->
+        <div class="art-bg-pattern" id="art-bg-pattern"></div>
 
-        function playOST() {
-            audio.play().catch(err => {
-                console.error("Playback failed:", err);
-            });
-        }
+        <!-- Business Portfolio -->
+        <div class="portfolio-content active" id="business-portfolio">
+            <!-- Experience Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">2023 - Present</div>
+                            <h3 class="timeline-title">Freelance Web Developer</h3>
+                            <p class="timeline-company">Self-employed</p>
+                            <p class="timeline-description">
+                                Built custom websites and web applications for various clients. 
+                                Focused on responsive design and user experience optimization.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">2022 - Present</div>
+                            <h3 class="timeline-title">Computer Science Student</h3>
+                            <p class="timeline-company">Paragon International University</p>
+                            <p class="timeline-description">
+                                Pursuing a degree in Computer Science with focus on software engineering 
+                                and web development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        function startGame() {
-            document.getElementById("start-screen").style.display = "none";
-            playOST();
-        }
+            <!-- Technologies Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Technologies</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=vscode" height="40" alt="vscode logo" class="tech-icon-img" />
+                        <span class="tech-name">VS Code</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=html" height="40" alt="html logo" class="tech-icon-img" />
+                        <span class="tech-name">HTML</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=css" height="40" alt="css logo" class="tech-icon-img" />
+                        <span class="tech-name">CSS</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=javascript" height="40" alt="javascript logo" class="tech-icon-img" />
+                        <span class="tech-name">JavaScript</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=react" height="40" alt="react logo" class="tech-icon-img" />
+                        <span class="tech-name">React</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=nodejs" height="40" alt="nodejs logo" class="tech-icon-img" />
+                        <span class="tech-name">Node.js</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=php" height="40" alt="php logo" class="tech-icon-img" />
+                        <span class="tech-name">PHP</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=laravel" height="40" alt="laravel logo" class="tech-icon-img" />
+                        <span class="tech-name">Laravel</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=mysql" height="40" alt="mysql logo" class="tech-icon-img" />
+                        <span class="tech-name">MySQL</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=postgresql" height="40" alt="postgresql logo" class="tech-icon-img" />
+                        <span class="tech-name">PostgreSQL</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="tailwind logo" class="tech-icon-img" />
+                        <span class="tech-name">Tailwind</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=bootstrap" height="40" alt="bootstrap logo" class="tech-icon-img" />
+                        <span class="tech-name">Bootstrap</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=postman" height="40" alt="postman logo" class="tech-icon-img" />
+                        <span class="tech-name">Postman</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=jquery" height="40" alt="jquery logo" class="tech-icon-img" />
+                        <span class="tech-name">jQuery</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=git" height="40" alt="git logo" class="tech-icon-img" />
+                        <span class="tech-name">Git</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=netlify" height="40" alt="netlify logo" class="tech-icon-img" />
+                        <span class="tech-name">Netlify</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=cloudflare" height="40" alt="cloudflare logo" class="tech-icon-img" />
+                        <span class="tech-name">Cloudflare</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=linux" height="40" alt="linux logo" class="tech-icon-img" />
+                        <span class="tech-name">Linux</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=cpp" height="40" alt="cplusplus logo" class="tech-icon-img" />
+                        <span class="tech-name">C++</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=python" height="40" alt="python logo" class="tech-icon-img" />
+                        <span class="tech-name">Python</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=figma" height="40" alt="figma logo" class="tech-icon-img" />
+                        <span class="tech-name">Figma</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=ps" height="40" alt="photoshop logo" class="tech-icon-img" />
+                        <span class="tech-name">Photoshop</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://skillicons.dev/icons?i=godot" height="40" alt="godot logo" class="tech-icon-img" />
+                        <span class="tech-name">Godot</span>
+                    </div>
+                    <div class="tech-card">
+                        <img src="https://assets.procreate.art/img/procreate-icon.png" height="40" alt="procreate logo" class="tech-icon-img" />
+                        <span class="tech-name">Procreate</span>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-        function updateScore() {
-            score++;
-            const scoreValue = document.getElementById('score-value');
-            scoreValue.textContent = score;
-        }
-    </script>
+        <!-- Art Portfolio -->
+        <div class="portfolio-content" id="art-portfolio">
+            <!-- Cute Intro -->
+            <div class="art-intro">
+                <p class="art-intro-text">
+                    Welcome to my <span>creative corner</span>! Here you'll find my artistic journey through 
+                    digital illustrations, character designs, and visual storytelling. 
+                    I love bringing <span>cute</span> and <span>expressive</span> ideas to life!
+                </p>
+            </div>
+
+            <!-- Art Experience Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-date">2015 - Present</div>
+                            <h3 class="timeline-title">Self-Taught Digital Artist</h3>
+                            <p class="timeline-company">Independent Creator</p>
+                            <p class="timeline-description">
+                                Started my artistic journey with traditional sketches before transitioning to digital art.
+                                Over the years, I've developed my unique style blending cute aesthetics with expressive character designs.
+                                Always learning, always growing!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What I'm Good At Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">What I Create</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skill-showcase">
+                    <!-- Digital Art -->
+                    <div class="skill-item">
+                        <div class="skill-content">
+                            <span class="skill-badge"><i class="fas fa-wand-magic-sparkles"></i> Specialty</span>
+                            <h3 class="skill-title">Digital Art</h3>
+                            <p class="skill-description">
+                                Creating vibrant digital illustrations with attention to color harmony and composition. 
+                                I use tools like Procreate and Photoshop to bring imaginative concepts to life with 
+                                rich details and expressive brushwork.
+                            </p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Procreate</span>
+                                <span class="skill-tag">Photoshop</span>
+                                <span class="skill-tag">Illustration</span>
+                            </div>
+                        </div>
+                        <div class="skill-image">
+                            <div class="skill-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stylized Art -->
+                    <div class="skill-item reversed">
+                        <div class="skill-content">
+                            <span class="skill-badge"><i class="fas fa-star"></i> Style</span>
+                            <h3 class="skill-title">Stylized Art</h3>
+                            <p class="skill-description">
+                                Developing unique visual styles that blend anime influences with western cartoon aesthetics. 
+                                My stylized work features bold lines, expressive faces, and dynamic poses that convey 
+                                personality and emotion.
+                            </p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Anime-inspired</span>
+                                <span class="skill-tag">Semi-realistic</span>
+                                <span class="skill-tag">Chibi</span>
+                            </div>
+                        </div>
+                        <div class="skill-image">
+                            <div class="skill-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mascot Design -->
+                    <div class="skill-item">
+                        <div class="skill-content">
+                            <span class="skill-badge"><i class="fas fa-heart"></i> Favorite</span>
+                            <h3 class="skill-title">Mascot Design</h3>
+                            <p class="skill-description">
+                                Designing adorable and memorable mascot characters for brands, streamers, and personal projects. 
+                                From cute foxes to playful cats, I create characters with charm and personality 
+                                that people love!
+                            </p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Character Design</span>
+                                <span class="skill-tag">Branding</span>
+                                <span class="skill-tag">VTuber</span>
+                            </div>
+                        </div>
+                        <div class="skill-image">
+                            <div class="skill-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Posters -->
+                    <div class="skill-item reversed">
+                        <div class="skill-content">
+                            <span class="skill-badge"><i class="fas fa-palette"></i> Creative</span>
+                            <h3 class="skill-title">Posters & Prints</h3>
+                            <p class="skill-description">
+                                Creating eye-catching poster designs and print-ready artwork. 
+                                From event promotions to decorative art prints, I craft visuals that make a statement 
+                                with bold typography and striking compositions.
+                            </p>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Print Design</span>
+                                <span class="skill-tag">Typography</span>
+                                <span class="skill-tag">Layout</span>
+                            </div>
+                        </div>
+                        <div class="skill-image">
+                            <div class="skill-image-placeholder">
+                                <i class="fas fa-image"></i>
+                                <span>No Image</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Gallery Section -->
+            <section class="section featured-gallery">
+                <div class="gallery-header">
+                    <div class="section-header" style="margin-bottom: 0; flex: 1;">
+                        <h2 class="section-title">Featured Works</h2>
+                        <div class="section-line"></div>
+                    </div>
+                    <a href="gallery.html" class="see-all-btn">
+                        See All <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="art-gallery" id="featured-gallery-grid">
+                    <!-- Gallery items rendered dynamically by gallery.js -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="contact-title">Get In Touch</h2>
+            <p class="contact-subtitle">
+                Feel free to reach out for collaborations, opportunities, or just a friendly hello!
+            </p>
+            <div class="contact-links business-contacts">
+                <a href="https://www.linkedin.com/in/Chansovisoth/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://www.facebook.com/ChansovisothWattanak" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i class="fab fa-facebook"></i>
+                    Facebook
+                </a>
+                <a href="mailto:cwattanak@paragoniu.edu.kh" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+            <div class="contact-links art-contacts">
+                <a href="https://www.reddit.com/user/Klaude_Here/submitted/" class="contact-link">
+                    <i class="fab fa-reddit-alien"></i>
+                    Reddit
+                </a>
+                <a href="https://www.instagram.com/iklaude/" class="contact-link">
+                    <i class="fab fa-instagram"></i>
+                    Instagram
+                </a>
+                <a href="https://discordapp.com/users/1037786229225308180" class="contact-link">
+                    <i class="fab fa-discord"></i>
+                    Discord
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            © 2026 <span>Chansovisoth Wattanak</span>. All rights reserved.
+        </p>
+    </footer>
+
+    <script src="js/gallery-data.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/portfolio-state.js"></script>
+    <script src="js/bg-pattern.js"></script>
+    <script src="js/modal-share.js"></script>
 </body>
-
 </html>

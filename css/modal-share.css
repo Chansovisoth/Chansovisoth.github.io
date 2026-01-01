@@ -1,0 +1,165 @@
+/* ===========================================
+   Share Modal Styles
+   Shared between index.html and gallery.html
+   =========================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 400px;
+    transform: scale(0.9) translateY(20px);
+    transition: var(--transition-normal);
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.share-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    justify-items: center;
+}
+
+.share-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-decoration: none;
+    width: 100%;
+}
+
+.share-btn:hover {
+    border-color: var(--accent);
+    background: var(--bg-hover);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.share-btn i,
+.share-btn img {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.share-btn img {
+    width: 1.5rem;
+    height: 1.5rem;
+    /* Default: blue accent filter for business mode */
+    filter: brightness(0) saturate(100%) invert(52%) sepia(98%) saturate(1825%) hue-rotate(166deg) brightness(96%) contrast(101%);
+}
+
+/* Art mode / Gallery page: pink accent filter */
+body.art-mode .share-btn img {
+    filter: brightness(0) saturate(100%) invert(47%) sepia(82%) saturate(2349%) hue-rotate(314deg) brightness(101%) contrast(91%);
+}
+
+.share-btn span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.copy-link-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.copy-link-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-family: inherit;
+}
+
+.copy-link-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.copy-btn {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.copy-btn:hover {
+    background: var(--accent-dark);
+}
+
+.copy-btn.copied {
+    background: #22c55e;
+}
